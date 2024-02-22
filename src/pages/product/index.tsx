@@ -2,15 +2,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { fetcher } from "@/lib/swr/fetcher";
 import useSWR from "swr";
+import { productType } from "./product.type";
 
 
-type productType = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-};
+
 const ProductPage = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [products, setProducts] = useState([]);
@@ -52,7 +47,7 @@ const ProductPage = () => {
                 </div>
                 <h4 className="text-[20px] font-semibold mt-[5px]">
                   {product.name}
-                </h4>
+                </h4>    
                 <p className="text-gray-400">{product.category}</p>
                 <p className="font-bold mt-[10px]">
                   {product.price.toLocaleString("id-ID", {
